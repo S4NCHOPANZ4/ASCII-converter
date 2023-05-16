@@ -25,38 +25,34 @@ function App() {
 
   }
 
-  const sendImg = (file, scaleWidth) =>{
+  const sendImg = (file, scaleWidth) => {
     const reader = new FileReader();
-
-
+  
     reader.onload = (e) => {
       const img = new Image();
       img.onload = () => {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-
-        
-        if(scaleWidth <= 9){
-          setMin(false)
+  
+        if (scaleWidth <= 9) {
+          setMin(false);
+        } else {
+          setMin(true);
         }
-        else{ 
-          setMin(true)
+  
+        if (scaleWidth > 120) {
+          scaleWidth = 120;
         }
-
-        if(scaleWidth > 120){
-            scaleWidth = 120;
-        }
-   
-        
-        setFont(setFontSize(scaleWidth, 120))
-
-        const maxWidth =  scaleWidth; // Ancho máximo deseado
-        const maxHeight = 100; // Alto máximo deseado
-
+  
+        setFont(setFontSize(scaleWidth, 120));
+  
+        const maxWidth = scaleWidth; // Desired maximum width
+        const maxHeight = 100; // Desired maximum height
+  
         let width = img.width;
         let height = img.height;
-
-        // Reescalar la imagen si supera los límites de ancho y alto
+  
+        // Rescale the image if it exceeds the maximum width and height
         if (width > maxWidth || height > maxHeight) {
           const aspectRatio = width / height;
           if (width > maxWidth) {
@@ -68,18 +64,18 @@ function App() {
             width = height * aspectRatio;
           }
         }
-
-        // Establecer las dimensiones del canvas
+  
+        // Set the canvas dimensions
         canvas.width = width;
         canvas.height = height;
-
-        // Dibujar la imagen en el canvas con las dimensiones reescaladas
+  
+        // Draw the image on the canvas with the rescaled dimensions
         ctx.drawImage(img, 0, 0, width, height);
-
-        // Obtener la URL de la imagen reescalada
+  
+        // Get the URL of the rescaled image
         const scaledImageUrl = canvas.toDataURL('image/jpeg');
-
-        // Establecer la URL de la imagen reescalada en el estado
+  
+        // Set the URL of the rescaled image in the state
         setImagePreviewUrl(scaledImageUrl);
       };
       img.src = e.target.result;
