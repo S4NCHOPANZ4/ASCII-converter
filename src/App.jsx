@@ -7,7 +7,7 @@ import VideoA from './pages/VideoA';
 
 function App() {
 
-  const [page, setPage] = useState(true) 
+  const [page, setPage] = useState(false) 
 
   return (
 
