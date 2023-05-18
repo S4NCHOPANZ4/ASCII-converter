@@ -4,37 +4,52 @@ $mobile: 580px;
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Anonymous Pro', monospace;
 }
 html{
     background-color: rgb(9, 9, 9);
 }
 .super{
+    font-family: 'Anonymous Pro', monospace;
+
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     flex-direction: column;
 }
+
 .title{
-    background-color: rgb(16, 16, 16);
-    margin-bottom: 10px;
-    border-radius: 10px;
     position: absolute;
     top: 0;
+    background-color: rgb(18, 18, 18);
     width: 100%;
-    height: 7%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    h1{ 
-        width: 100%;
-        text-align: center;
-        font-family: 'VT323', monospace;
-        font-weight: 400;
+    justify-content: space-between;
+    h1{
         color: white;
-        font-size: 2.5rem;
-       
+        padding: 15px 40px;
+        font-family: system-ui;
+        font-weight: 300;
+    }
+    .buttons_nav{
+        width: 300px;
+        margin-right: 10px;
+        display: flex;
+        justify-content: space-evenly;
+        button{
+            padding: 7px 20px;
+            background-color: #0f0f0f;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: rgb(116, 116, 116);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            &:hover{
+                color: white;
+            }
+        }
     }
 }
 .main_cont{
@@ -177,6 +192,8 @@ html{
         padding: 10px;
         border-radius: 10px;
         background-color: rgb(16, 16, 16);
+    font-family: 'Anonymous Pro', monospace;
+
         color: rgb(99, 99, 99);
         overflow: hidden;
         @media (max-width: $vertical) {
@@ -198,7 +215,8 @@ html{
     color: rgb(78, 78, 78);
     position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: 0; 
+    font-family: 'Anonymous Pro', monospace;
     padding: 0px 10px;
     p{
         font-size: .8rem;
@@ -208,4 +226,107 @@ input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+//============================================================================
+//============================================================================
+//============================================================================
+//============================================================================
+//============================================================================
+
+$breakpoint-mobile: 1300px;
+
+
+
+.super_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+.camera_super{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+}  
+.ASCII_VIDEO{
+    font-size: .2rem;
+    background-color: rgba(255, 255, 255, 0.479);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+    @media (max-width: $breakpoint-mobile) {
+        font-size: .1rem;
+    }
+}
+.camera_container{
+    position: relative;
+    overflow: hidden;
+    width: 640px;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: $breakpoint-mobile) {
+        height: 300px;
+        width: 100vw;
+
+    }
+    .camera{
+        border-radius: 5px;
+        @media (max-width: $breakpoint-mobile) {
+            width: 240px;
+            height: 180px;
+        }
+    }
+
+    .camera_back{
+        position: absolute;
+        color: #303030;
+        font-family: system-ui;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        height: 99%;
+        width: 99%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        border: 2px solid #303030;
+        .icon{
+            font-size: 2rem;
+        }
+        @media (max-width: $breakpoint-mobile) {
+            display: none;
+        }
+    }
+} 
+
+
+/* styles.css */
+.MuiSwitch-root {
+    background-color: rgb(34, 34, 34);
+    border-radius: 20px;
+    margin-right: 10px;
+}
+
+.MuiSwitch-colorPrimary.Mui-checked .MuiSwitch-thumb {
+      /* Custom styles for the track element when the switch is checked */
+      color: white;
+
+}
+  
+.MuiFormControlLabel-label {
+    color: white;
+    font-family: system-ui;
 }
