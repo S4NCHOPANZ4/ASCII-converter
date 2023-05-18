@@ -1,3 +1,5 @@
+
+$breakpoint-mobile: 1300px;
 $vertical: 1000px;
 $mobile: 580px;
 
@@ -26,6 +28,7 @@ html{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     h1{
         color: white;
         padding: 15px 40px;
@@ -60,7 +63,7 @@ html{
     @media (max-width: $vertical) {
         flex-direction: column;
         height: 100vh;
-        margin-top: 10rem;
+        margin-top: 18rem;
     }
  
     .side_cont{
@@ -233,7 +236,6 @@ input[type="number"]::-webkit-outer-spin-button {
 //============================================================================
 //============================================================================
 
-$breakpoint-mobile: 1300px;
 
 
 
@@ -242,6 +244,9 @@ $breakpoint-mobile: 1300px;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    @media (max-width: $breakpoint-mobile) {
+       margin-top: 2rem;
+    }
 
 }
 .camera_super{
